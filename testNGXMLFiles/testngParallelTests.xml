@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suite" >
+  <test name="Submit order tests">
+    <classes>
+      <class name="seleniumFrameworkDesign.testCases.ModifiedStandaloneTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+   <test name="error validation tests" parallel="classes" thread-count="2">
+    <classes>
+      <class name="seleniumFrameworkDesign.testCases.ErrorValidations"/>
+      <class name="seleniumFrameworkDesign.testCases.ErrorValidationsCopy"/>
+    </classes>
+  </test>
+</suite> <!-- Suite -->
