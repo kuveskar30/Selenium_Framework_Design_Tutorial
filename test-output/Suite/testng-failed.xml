@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Submit order tests(failed)">
+  <test thread-count="5" parallel="classes" name="error validation tests(failed)">
     <classes>
-      <class name="seleniumFrameworkDesign.testCases.ModifiedStandaloneTest">
+      <class name="seleniumFrameworkDesign.testCases.ErrorValidations">
         <methods>
           <include name="launchApplication"/>
-          <include name="submitOrderTest"/>
+          <include name="loginErrorValidation"/>
           <include name="quitApplication"/>
         </methods>
-      </class> <!-- seleniumFrameworkDesign.testCases.ModifiedStandaloneTest -->
+      </class> <!-- seleniumFrameworkDesign.testCases.ErrorValidations -->
     </classes>
-  </test> <!-- Submit order tests(failed) -->
+  </test> <!-- error validation tests(failed) -->
 </suite> <!-- Failed suite [Suite] -->

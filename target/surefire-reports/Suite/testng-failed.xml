@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
-  <test thread-count="5" name="Submit order tests(failed)" verbose="0">
+<suite thread-count="2" parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="2" parallel="tests" name="error validation tests(failed)" verbose="0">
+    <groups>
+      <run>
+        <include name="errorHandeling"/>
+      </run>
+    </groups>
     <classes>
-      <class name="seleniumFrameworkDesign.testCases.ModifiedStandaloneTest">
+      <class name="seleniumFrameworkDesign.testCases.ErrorValidations">
         <methods>
-          <include name="submitOrderTest"/>
           <include name="launchApplication"/>
+          <include name="loginErrorValidation"/>
           <include name="quitApplication"/>
+          <include name="productErrorValidation"/>
         </methods>
-      </class> <!-- seleniumFrameworkDesign.testCases.ModifiedStandaloneTest -->
+      </class> <!-- seleniumFrameworkDesign.testCases.ErrorValidations -->
     </classes>
-  </test> <!-- Submit order tests(failed) -->
+  </test> <!-- error validation tests(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -18,7 +18,8 @@ public class LoginPage extends AbstractComponent{
 		super(d1);
 		// initialization
 		this.d1 = d1;
-		// it takes searchContext and page in which WbElements to be used as argument
+		//PageFactory helps to improve readability of code
+		// it takes searchContext and page in which WebElements to be used as argument
 		PageFactory.initElements(d1, this);
 	}
 
@@ -38,20 +39,20 @@ public class LoginPage extends AbstractComponent{
 	@FindBy(css = "div[class*='ng-trigger-flyInOut']")
 	WebElement error_message;
 	
-	@FindBy(css = ".card")
-	WebElement product_cards;
+//	@FindBy(css = ".card")
+//	WebElement product_cards;
 	
 	public ProductCatalogue loginToApplication(String email, String Password) {
 		user_email.sendKeys(email);
 		user_password.sendKeys(Password);
 		waitForElementToBeClickable(login_button,10);
 		login_button.click();
-		waitForElementToAppear(product_cards, 10);
+//		waitForElementToAppear(product_cards, 10);
 		ProductCatalogue product_catalouge = new ProductCatalogue(d1);
 		return product_catalouge;
 	}
 
-	//I think this method shoild not come in Login page object
+	//I think this method should not come in Login page object
 	//this step is done before visiting login page, after this step login page is displayed
 //	public void goToLoginAppURL() {
 //		d1.get("https://rahulshettyacademy.com/client/");

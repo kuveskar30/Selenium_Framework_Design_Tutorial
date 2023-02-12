@@ -1,3 +1,4 @@
+
 package seleniumFrameworkDesign.testCases;
 
 import java.io.IOException;
@@ -55,12 +56,12 @@ public class ModifiedStandaloneTest extends BaseTest {
 		Assert.assertEquals(ocp.get_confirmation_message(), "THANKYOU FOR THE ORDER.");
 	}
 
-//	@Test(dependsOnMethods= {"submitOrderTest"})
-//	public void verifyOrdersTest() {
-//		ProductCatalogue product_catalouge = lp.loginToApplication("pratikkuveskar@gmail.com", "Pratik@123");
-//		OrdersPage op = product_catalouge.goToOrdersPage();
-//		Assert.assertTrue(op.verifyOrderPresent(desired_product_name));
-//	}
+	@Test(dependsOnMethods= {"submitOrderTest"},dataProvider = "getData")
+	public void verifyOrdersTest(HashMap<String, String> hashmap_test_data) {
+		ProductCatalogue product_catalouge = lp.loginToApplication(hashmap_test_data.get("email"), hashmap_test_data.get("password"));
+		OrdersPage op = product_catalouge.goToOrdersPage();
+		Assert.assertTrue(op.verifyOrderPresent(hashmap_test_data.get("desired_product_name")));
+	}
 	
 
 	@DataProvider

@@ -33,7 +33,7 @@ public class ProductCatalogue extends AbstractComponent {
 	@FindBy(css = ".mb-3")
 	List<WebElement> products;
 
-	// as rahul has developed this app he was knowing locator for this animation
+	// as rahul has developed this sample app he was knowing locator for this animation
 	// we can ask to developer for locator or html code of this animation
 	@FindBy(css = ".ngx-spinner-overlay")
 	WebElement spinner1;
@@ -47,10 +47,11 @@ public class ProductCatalogue extends AbstractComponent {
 	By products_locator = By.cssSelector(".mb-3");
 
 	// action for getting products list
-	public List<WebElement> getProductList() {
-		waitForElementToAppear(products_locator, 5);
-		return products;
-	}
+	//already WebElement is defined for product list so no need of this method
+//	public List<WebElement> getProductList() {
+//		waitForElementToAppear(products_locator, 5);
+//		return products;
+//	}
 
 	// action for selecting desired product by name
 	public WebElement getProductByName(String desired_product_name) {

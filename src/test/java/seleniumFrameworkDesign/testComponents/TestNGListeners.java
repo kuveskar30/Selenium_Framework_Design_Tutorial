@@ -10,13 +10,14 @@ import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import seleniumFrameworkDesign.resources.ExtentReporterNG;
+
 
 //ITestListener has methods for listening to test results
 public class TestNGListeners extends BaseTest implements ITestListener {
 	ExtentTest extent_test;
-	ExtentReports extent_reports = ExtentReporterNG.getReportObject();
+	ExtentReports extent_reports = TestNGListeners.getReportObject();
 	//it helps to maintain thread safety
 	//unique thread id for each test is created
 	//each java class instance have unique id
@@ -52,6 +53,24 @@ public class TestNGListeners extends BaseTest implements ITestListener {
 
 	public void onFinish(ITestContext context) {
 		extent_reports.flush();
+	}
+	
+	public static ExtentReports getReportObject() {
+		
+		//this code should be written at start of each test to use extent report
+		//after completion of all tests(and not every test) extent.flush() should be used
+		//otherwise report will not get created
+		String path = System.getProperty("user.dir")+"//reports//index.html";
+		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+		reporter.config().setDocumentTitle("Modified Test Results");
+		reporter.config().setReportName("Web Automation Results");
+		
+		ExtentReports extent_reports = new ExtentReports();
+		extent_reports.attachReporter(reporter);
+		extent_reports.setSystemInfo("Tester Name", "PTK");
+		
+		return extent_reports;
+		
 	}
 
 }

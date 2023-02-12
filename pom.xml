@@ -52,8 +52,9 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>5.3.1</version>
+			<version>5.3.2</version>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
@@ -85,7 +86,12 @@
 							<artifactId>maven-surefire-plugin</artifactId>
 							<version>3.0.0-M7</version>
 							<configuration>
+							<!-- as TestNGTestRunner is a java file we have 
+							used includes tag,
+							foe .xml files we have used  suiteXmlFiles tag-->
 								<includes>
+								<!-- **/TestNGTestRunner.java here **/ means
+								find TestNGTestRunner in any package and run it -->
 									<include>**/TestNGTestRunner.java</include>
 								</includes>
 							</configuration>

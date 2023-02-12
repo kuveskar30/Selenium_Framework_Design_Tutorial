@@ -87,7 +87,8 @@ public class BaseTest {
 		lp = new LoginPage(d1);
 		// I think below commented step should not be part of login page object
 		// lp.goToLoginAppURL();
-		return lp;
+		return lp;//this line not required in testNG in this case
+		//but required in cucumber step definition
 	}
 
 	@AfterMethod(alwaysRun = true)

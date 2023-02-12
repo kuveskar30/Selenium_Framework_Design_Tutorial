@@ -11,12 +11,7 @@
 				name="seleniumFrameworkDesign.testCases.ErrorValidations" />
 		</classes>
 	</test>
-	<test name="Submit order tests">
-		<classes>
-			<class
-				name="seleniumFrameworkDesign.testCases.ModifiedStandaloneTest" />
-		</classes>
-	</test> <!-- Test -->
 
-	
+
+
 </suite> <!-- Suite -->
